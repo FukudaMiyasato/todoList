@@ -14,13 +14,29 @@ function App(){
         isCompleted: false,
       }        
     ])
+  const [value,setValue]= React.useState('');
   
-    return(
+  const addTodo = text =>{
+      const newTodos = [...todos,{text:text,isCompleted:false}]
+      setTodos(newTodos);
+  }  
+    
+
+  const removeTodo = index =>{
+    let temp = [...todos];
+    temp.splice(index,1);
+    setTodos(temp);
+  }
+  return(
       <>
-        {todos.map((todo, i) => <div key={i}>{todo.text}</div>)}
+        {todos.map((todo, i) => 
+          <Todo index={i} key={i} todo={todo} remove={removeTodo} />
+          )}
+        <TodoForm addTodo={addTodo} />        
       </>
     );
   }
+  
   
   ReactDOM.render(
     <App/>,
