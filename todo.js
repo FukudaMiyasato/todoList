@@ -2,10 +2,9 @@ function Todo({todo,index,remove}){
 
     function handle(){
         remove(index);
-
     }
 
-    return <div className='todo' onClick={handle } >{todo.text} (-)</div>
+    return (<div className='todo' >{todo.text} <button onClick={handle} className='btnDelete'>x</button></div>)
 
 
 }

@@ -28,12 +28,12 @@ function App(){
     setTodos(temp);
   }
   return(
-      <>
+      <div id='contform'>
         {todos.map((todo, i) => 
           <Todo index={i} key={i} todo={todo} remove={removeTodo} />
           )}
         <TodoForm addTodo={addTodo} />        
-      </>
+      </div>
     );
   }
   
